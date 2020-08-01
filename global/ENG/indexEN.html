@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hamnyoungkuk projects : The Future Farmer
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../../style/style.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RJ4PC6SKM"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4RJ4PC6SKM');
+        </script>
+
+        <!-- Website with PageSpeed tools - 2020.08.01_https://developers.google.com/speed/libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Fetch API polyfill - 2020.08.01_https://github.com/github/fetch -->
+        <script src="../../sources/fetch_api_github_200801/fetch.js"></script>
+    </head>
+
+    <body>
+        <h1>
+            <a href="./indexEN.html">Hamnyoungkuk's Future Farmer Projects</a>
+        </h1>
+        <h3>
+            Nano Plant Sensor-Farm Infotainment | Bias Link-Pairing Flow-Mind Mining
+        </h3>
+
+        <!-- Toggle Button to support various languages -->
+        <input id="toggle_bt" type="button" value="한글 | KOREAN" onclick="location.href='../../index.html';">
+        <input id="toggle_bt" type="button" value="영어 | ENGLISH" onclick="location.href='./indexEN.html';">
+
+        <!-- Contents PageDisplay -->
+        <div id="outer_grid">
+            <div id="navigation"></div>
+            <div id="inner_grid">
+                <div id="contents"></div>
+            </div>   
+        </div>
+
+        <!-- Contents PageSetting -->
+        <script>
+            fetch('menu_list').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('#navigation').innerHTML=text;
+                })
+            });
+
+            fetch('home').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('#contents').innerHTML=text;
+                })
+            });
+
+            function introFetch(pageTitle){
+                fetch(pageTitle).then(function(response){
+                    response.text().then(function(text){
+                        document.querySelector('#contents').innerHTML=text;
+                    })
+                });
+            }
+        </script>
+    </body>
+</html>
